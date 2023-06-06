@@ -1,0 +1,43 @@
+@use '../utils/' as *;
+
+.footer{
+    background: var(--dark-blue);
+    padding:rem(30) 0;
+    @include breakpoint-down(small){
+        padding:rem(20) 0;
+    }
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include breakpoint-down(small){
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        a{
+            color:var(--white);
+        }
+        .footer-contacts span{
+            color:var(--light-pink);
+        }
+        .menu{
+            @include breakpoint-down(small){
+                display: flex;
+                flex-wrap:wrap;
+                position: static;
+                gap: 13px;
+                background: inherit;
+                flex: 0 0 100%;
+                justify-content: center;
+            }
+        }
+        
+    }
+
+    .menu__item:not(:last-child)::after {
+        background: var(--white);
+    }
+
+
+}
+

@@ -1,0 +1,100 @@
+@use '../utils/' as *;
+
+.hero-section{
+    background: var(--dark-gray);
+    max-height:900px;
+    overflow-y: hidden;
+    @include breakpoint-down(medium){
+        max-height: calc(100vh - 200px);
+    }
+    @include breakpoint-down(small){
+        max-height: 500px;
+        position: relative;
+    }
+    
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height:inherit;
+        @include breakpoint-down(small){
+           flex-wrap: wrap;
+        }
+    }
+
+    .left-section {
+        max-height: 100vh;
+        flex: 0 0 40%;
+        max-width: 40%; 
+        display: flex;
+        justify-items: end;
+        flex-direction: column;
+        align-items: flex-end;
+        @include breakpoint-down(medium){
+            flex: 0 0 auto;
+
+        }
+        @include breakpoint-down(small){
+            flex: 0 0 100%;
+            max-width: 100%;
+            align-items: center;
+            position: absolute;
+            text-align: center;
+        }
+        &__wrapper{
+            p{
+                text-transform: uppercase;
+                letter-spacing: rem(6);
+                font-size: rem(14);
+                margin-bottom:rem(15);
+                @include breakpoint-down(medium){
+                    font-size:rem(12);
+                }
+            }
+            .hero-heading{
+                font-size:rem(70);
+                line-height: 1;
+                padding-bottom:rem(30);
+                @include breakpoint-down(large){
+                    font-size:rem(60);
+                }
+                @include breakpoint-down(medium){
+                    font-size:rem(50);
+                }
+            }
+        } 
+        
+     }
+     .right-section {
+         flex: 0 0 60%;
+         max-width: 60%;
+         @include breakpoint-down(small){
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+         &__wrapper{
+            @include breakpoint-down(small){
+                text-align: center;
+            }
+            img{
+                object-position: 0 rem(250);
+                @include breakpoint-down(small){
+                    object-position: 20% 0;
+                }
+            }
+        }
+     }
+}
+
+.hero-section::before{
+    @include breakpoint-down(small){
+        content:'';
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        background: var(--white);
+        opacity:0.6;
+    }   
+}

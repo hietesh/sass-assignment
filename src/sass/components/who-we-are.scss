@@ -1,0 +1,91 @@
+@use '../utils/' as *;
+
+.who-we-are{
+    display: flex;
+    @include breakpoint-down(medium){
+        flex-wrap: wrap;
+    }
+    &__box{
+        flex: 0 0 50%;
+        max-width: 50%;
+        img{
+            height: 100%;
+            @include breakpoint-down(medium){
+                width: 100%;
+            }
+        }
+        @include breakpoint-down(medium){
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+    .right-desc{
+        background: var(--dark-blue);
+        color:var(--white);
+        padding-left:rem(80);
+        padding-right:rem(80);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+        @include breakpoint-down(small){
+            padding-left:rem(20);
+            padding-right:rem(20);
+        }
+        &__desc{
+            p{
+                font-size: rem(13);
+                margin-bottom:rem(30);
+            }
+            &--gray{
+                color:var(--dark-gray);
+            }
+
+            &--darkg{
+                color:gray;
+                padding-bottom:20px;
+            }
+            .cta-button{
+                color:var(--white);
+            }
+            .cta-button:hover{
+                color:var(--black);
+            }
+        }
+    }
+}
+
+.who-we-are.with-form{
+    .right-desc{
+        background: var(--white);
+        color:var(--black);
+        @include breakpoint-down(small){
+            order: 2;
+        }
+    } 
+}
+
+.form-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom:rem(40);
+    input{
+        flex : 0 0 48%;
+        margin-bottom:rem(20);
+        @include breakpoint-down(small){
+            flex: 0 0 100%;
+            margin-bottom:rem(15);
+        }
+    }
+    input:nth-child(2n+1){
+        margin-right:rem(20);
+        @include breakpoint-down(large){
+            margin-right:rem(15);
+        }
+        @include breakpoint-down(small){
+            margin-right:0;
+        }
+    }
+
+}

@@ -1,0 +1,116 @@
+@use '../utils/' as *;
+
+.header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:rem(40) rem(80);
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    @include breakpoint-down(large){
+        padding:rem(30) rem(60);
+    }
+    @include breakpoint-down(small){
+        position: relative;
+        background: var(--white);
+        padding:rem(20) rem(40);
+    }
+
+    &__left a{
+        display: flex;
+        align-items: center;
+        img{
+            max-width: rem(50);
+            @include breakpoint-down(small){
+                max-width: rem(30);
+            }  
+        }
+        .name{
+            font-size:rem(25);
+            margin-left:rem(20);
+            font-weight: 600;
+            @include breakpoint-down(large){
+                font-size:rem(22);
+            }
+
+            @include breakpoint-down(small){
+                font-size:rem(20);
+                margin-left:rem(15);
+            }        
+            span{
+                font-weight: 400;
+            }
+        }        
+    }
+
+    &__hamburger{
+        display:none;
+        cursor: pointer;
+        @include breakpoint-down(small){
+            display: block;
+        }
+        span{
+            height: rem(2);
+            width: rem(28);
+            display: block;
+            background: var(--black);
+        }
+        span:not(:last-child){
+            margin-bottom:rem(5);
+        }
+    }
+
+    
+}
+
+
+
+.menu{
+    display: flex;
+    @include breakpoint-down(small){
+        position: absolute;
+        top:100%;
+        left:0;
+        display: none;
+        width: 100%;
+        z-index: 1;
+        background: #fff;
+        margin: 0;
+        padding: rem(25) rem(10);
+        text-align: center;
+        border-top: rem(1) solid;
+    }
+    &__item{
+        text-transform: uppercase;
+        font-size:rem(10);
+        font-weight: 500;
+        letter-spacing: rem(0.5);
+        @include breakpoint-down(small){
+            margin:rem(10) 0;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        
+    }
+    &__item:not(:last-child)::after{
+        content:'';
+        display: inline-block;
+        height:rem(4);
+        width:rem(4);
+        border-radius:rem(100);
+        background: var(--black);
+        margin:0 rem(30);
+        margin-bottom: rem(2);
+        vertical-align: middle;
+        @include breakpoint-down(large){
+            margin: 0 rem(25);
+            margin-bottom: rem(3);
+        }
+        @include breakpoint-down(small){
+            display: none;
+        }
+    }
+}

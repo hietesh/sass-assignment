@@ -1,0 +1,38 @@
+@use '../utils/' as *;
+
+h1,h2,h3{
+    margin:0;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+a, a:visited , a:active{
+    color:#000;
+    text-decoration: none;
+    transition: 0.5s all;
+}
+
+p,figure{
+    margin:0;
+}
+
+img{
+    max-width: 100%;
+}
+
+.form-input,.form-text-area{
+    outline: none;
+    background: var(--light-gray);
+    padding:rem(20) rem(15);
+    font-size:rem(12);
+    font-weight: 500;
+    border:none;
+    width: 100%;
+}
+
+
+.form-input:focus,.form-text-area:focus{
+    outline: none;
+}

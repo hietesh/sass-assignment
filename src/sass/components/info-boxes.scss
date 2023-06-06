@@ -1,0 +1,67 @@
+@use '../utils/' as *;
+
+.info-boxes{
+    display: flex;
+    @include breakpoint-down(small){
+        flex-wrap: wrap;
+    }
+    &__box{
+        flex: 0 0 33.33%;
+        display: flex;
+        padding:rem(80) rem(80);
+        @include breakpoint-down(large){
+            padding:rem(60) rem(50);
+        }
+        @include breakpoint-down(medium){
+            padding:rem(50) rem(40);
+        }
+        @include breakpoint-down(small){
+            flex: 0 0 100%;
+        }
+            
+        img{
+            max-width:40px;
+            max-height:42px;
+            @include breakpoint-down(small){
+                max-width:35px;
+                max-height:30px;
+            }
+        } 
+    }
+    
+    &--pink{
+        background: var(--light-pink);
+        .info-desc{
+            &__desc{
+                color:var(--white);
+            }
+        }   
+    }
+    &--gray{
+        background: var(--light-gray);
+    } 
+}
+
+.info-desc{
+    margin-left:rem(25);    
+    &__heading{
+        font-size:rem(20);
+        font-weight: 500;
+        @include breakpoint-down(small){
+            font-size:rem(18);
+        }
+    }
+
+    &__desc{
+        color:var(--dark-gray);
+        font-weight: 300;
+        margin-top:rem(15);
+        font-size:rem(14);
+        line-height: 2;
+        @include breakpoint-down(small){
+            margin-top:rem(10);
+            font-size:rem(13);
+            line-height: 1.5;
+        }
+    }
+}

@@ -1,0 +1,145 @@
+@use '../utils/' as *;
+
+.milestone{
+    
+    .container{
+        .section-heading{
+            text-align: center;
+        }
+
+        > p{
+            color:var(--dark-gray);
+            font-size:rem(14);
+            text-align: center;
+        }
+    } 
+}
+
+.milestone-roadmap{
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top:rem(50);
+    &__box{
+        .info-desc{
+            margin-left:0;
+        }
+        .mile{
+            display: flex;
+            align-items: center;
+            position: relative;
+            @include breakpoint-down(small){
+                flex-wrap: wrap;
+                margin-top: 30px;
+            }
+            .miles-year{
+                font-size:rem(45);
+                font-weight: 600;
+                @include breakpoint-down(medium){
+                    font-size:rem(40);
+                }
+                @include breakpoint-down(small){    
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        .mile::before{
+            content: "";
+            background: repeating-linear-gradient(to bottom, transparent 0 3px, var(--dark-gray) 0px 13px) 80%/4px 100% no-repeat;
+            height: 28px;
+            width: 4px;
+            position: absolute;
+            left: 50%;
+            top: -17px;
+            z-index: -1;
+        }
+        .mile{
+            figure{
+                @include breakpoint-down(small){
+                    order: 2;
+                }
+            }
+        }
+        .mile > *{
+            flex:0 0 33.33%;
+            max-width: 33.33%;
+            @include breakpoint-down(small){
+                flex:0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        &--pink{
+            .miles-year{
+                color:var(--light-pink);
+            }
+        }
+
+        &--green{
+            .miles-year{
+                color:var(--light-green);
+            }
+        }
+
+        &--light-green{
+            .miles-year{
+                color:var(--dark-green);
+            }
+        }
+
+        &--orange{
+            .miles-year{
+                color:var(--dark-orange);
+            }
+        }
+
+        figure{
+            max-width:160px !important;
+            padding:10px;
+            border-radius:50%;
+            margin: rem(20) auto;
+            box-shadow: 0 0 15px rgb(0 0 0/5%);
+            @include breakpoint-down(small){
+                margin: rem(10) auto;
+            }
+            img{
+                border-radius:50%;
+                vertical-align: middle;
+            }
+        }
+
+    }
+
+    &__box:nth-child(2n) {
+        .info-desc{
+            text-align: right;
+            @include breakpoint-down(small){
+                text-align: center;
+                order: 3;
+            }
+        }
+        .miles-year{
+            text-align: left;
+            @include breakpoint-down(small){
+                text-align: center;
+            }
+        }
+        
+    }
+    &__box:nth-child(2n+1) {
+        .info-desc{
+            text-align: left;
+            @include breakpoint-down(small){
+                text-align: center;
+                order: 3;
+            }
+        }
+        .miles-year{
+            text-align: right;
+            @include breakpoint-down(small){
+                text-align: center;
+            }
+        }
+    }
+}
